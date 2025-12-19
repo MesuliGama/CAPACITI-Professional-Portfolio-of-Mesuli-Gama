@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesuli Michael Gama — Professional Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        'plex-mono': ['IBM Plex Mono', 'monospace'],
+                    },
+                    colors: {
+                        primary: '#0ea5e9', // Animus Blue (Cyan/Sky)
+                        secondary: '#f97316', // Alert Orange (AC3 HUD Accent)
+                        accent: '#f97316', // Matching secondary
+                        'dark-bg': '#020617', // Deep Slate/Void
+                        'panel-bg': 'rgba(15, 23, 42, 0.6)', // Glassy Dark Blue
+                        'border-animus': 'rgba(14, 165, 233, 0.3)', // Subtle Blue Border
+                        'text-main': '#f8fafc', // Memory White
+                        'text-muted': '#94a3b8', // Slate Grey
+                    },
+                    backgroundImage: {
+                        'dot-pattern': "radial-gradient(circle, rgba(14, 165, 233, 0.1) 1px, transparent 1px)",
+                        'tech-grid': 'linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px)',
+                        'animus-shard': "linear-gradient(45deg, transparent 5%, rgba(14, 165, 233, 0.05) 5%, rgba(14, 165, 233, 0.05) 10%, transparent 10%)",
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'gradient-pan': {
+                            '0%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                            '100%': { 'background-position': '0% 50%' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { 'box-shadow': '0 0 10px rgba(14, 165, 233, 0.2)' },
+                            '50%': { 'box-shadow': '0 0 25px rgba(14, 165, 233, 0.6)' },
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        'fade-in-long': {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        'slide-in-bottom': {
+                            '0%': { opacity: '0', transform: 'translateY(50px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'pulse-fade': {
+                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+                            '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+                        },
+                        'blob-pulse': {
+                            '0%, 100%': {
+                                transform: 'scale(1) translate(0%, 0%)',
+                                opacity: '0.2',
+                                'border-radius': '60% 40% 30% 70% / 60% 30% 70% 40%',
+                            },
+                            '50%': {
+                                transform: 'scale(1.1) translate(-50%, 20%)',
+                                opacity: '0.4',
+                                'border-radius': '30% 70% 60% 40% / 50% 60% 30% 60%',
+                            },
+                            '75%': {
+                                transform: 'scale(1.05) translate(20%, -30%)',
+                                opacity: '0.3',
+                                'border-radius': '70% 30% 50% 50% / 30% 70% 50% 50%',
+                            },
+                        },
+                        'chat-bubble-in': {
+                            '0%': { opacity: '0', transform: 'translateY(10px) scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+                        },
+                        'slide-in-right': {
+                            '0%': { transform: 'translateX(100%)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        'scanline': {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(150vh)' },
+                        },
+                        'flicker': {
+                            '0%, 100%': { opacity: '0.9' },
+                            '5%': { opacity: '0.5' },
+                            '10%': { opacity: '0.9' },
+                            '50%': { opacity: '1' },
+                        },
+                        'holographic-in': {
+                            '0%': { opacity: '0', transform: 'scale(0.9) skewX(-5deg)', filter: 'blur(5px)' },
+                            '100%': { opacity: '1', transform: 'scale(1) skewX(0)', filter: 'blur(0)' },
+                        },
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'gradient-pan': 'gradient-pan 6s ease infinite',
+                        'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-long': 'fade-in-long 2s ease-out forwards',
+                        'slide-in-bottom': 'slide-in-bottom 1s ease-out forwards',
+                        'pulse-fade': 'pulse-fade 4s infinite ease-in-out',
+                        'blob-pulse': 'blob-pulse 15s infinite alternate ease-in-out',
+                        'chat-bubble-in': 'chat-bubble-in 0.3s ease-out forwards',
+                        'slide-in-right': 'slide-in-right 0.5s ease-out forwards',
+                        'slide-in-left': 'slide-in-left 0.5s ease-out forwards',
+                        'scanline': 'scanline 8s linear infinite',
+                        'flicker': 'flicker 4s ease-in-out infinite',
+                        'holographic-in': 'holographic-in 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- jspdf and html2canvas for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-slate-50 dark:bg-dark-bg text-gray-900 dark:text-text-main font-plex-mono antialiased transition-colors duration-300 selection:bg-primary selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
